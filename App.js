@@ -7,7 +7,7 @@ import {
     TouchableOpacity
 } from 'react-native';
 import { ComponentStateLess } from './src/components';
-import ComponentsUIScreen from './src/screens/ComponentsUIScreen';
+import Navigation from './src/Navigation';
 
 function ComponentStateLessFunc({ text }) {
     return <Text>{text}</Text>;
@@ -38,21 +38,6 @@ class ComponentWithState extends Component {
     }
 }
 
-const App = () => {
-    return (
-        <Fragment>
-            <SafeAreaView>
-                {/* <ComponentStateLess text={'Testando algum texto'} />
-                {/* <ComponentStateLessFunc text={'textooo'} />
-                <ComponentWithState outraProp={'outraProp'}>
-                    Prop children
-                </ComponentWithState> */}
-                <ComponentsUIScreen />
-            </SafeAreaView>
-        </Fragment>
-    );
-};
-
 const styles = StyleSheet.create({});
 
-export default App;
+export default Navigation;
