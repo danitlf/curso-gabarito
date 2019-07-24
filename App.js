@@ -1,24 +1,32 @@
 import React, { Fragment, Component } from 'react';
 import { SafeAreaView, StyleSheet, View, Text } from 'react-native';
 import { ComponentStateLess } from './src/components';
-function ComponentStateLessFunc() {
-    return <Text>ComponentStateLessFunc</Text>;
+
+function ComponentStateLessFunc({ text }) {
+    return <Text>{text}</Text>;
 }
 
 class ComponentWithState extends Component {
     render() {
-        return <Text>ComponentWithState</Text>;
+        return (
+            <View>
+                <Text>
+                    {this.props.children}, {this.props.outraProp}
+                </Text>
+            </View>
+        );
     }
 }
 
 const App = () => {
-    console.log('ooi');
     return (
         <Fragment>
             <SafeAreaView>
-                <ComponentStateLess />
-                <ComponentStateLessFunc />
-                <ComponentWithState />
+                <ComponentStateLess text={'Testando algum texto'} />
+                <ComponentStateLessFunc text={'textooo'} />
+                <ComponentWithState outraProp={'outraProp'}>
+                    Prop children
+                </ComponentWithState>
             </SafeAreaView>
         </Fragment>
     );
