@@ -7,6 +7,7 @@ import {
     TouchableOpacity
 } from 'react-native';
 import { ComponentStateLess } from './src/components';
+import ComponentsUIScreen from './src/screens/ComponentsUIScreen';
 
 function ComponentStateLessFunc({ text }) {
     return <Text>{text}</Text>;
@@ -41,11 +42,12 @@ const App = () => {
     return (
         <Fragment>
             <SafeAreaView>
-                <ComponentStateLess text={'Testando algum texto'} />
-                {/* <ComponentStateLessFunc text={'textooo'} /> */}
+                {/* <ComponentStateLess text={'Testando algum texto'} />
+                {/* <ComponentStateLessFunc text={'textooo'} />
                 <ComponentWithState outraProp={'outraProp'}>
                     Prop children
-                </ComponentWithState>
+                </ComponentWithState> */}
+                <ComponentsUIScreen />
             </SafeAreaView>
         </Fragment>
     );
