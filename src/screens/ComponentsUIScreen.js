@@ -12,6 +12,15 @@ class ComponentsUIScreen extends Component {
         ];
     }
 
+    componentDidMount = () => {
+        this.setState({ count: ++this.state.count });
+    };
+
+    shouldComponentUpdate = (newProps, newState) => {
+        console.log(newState);
+        return true;
+    };
+
     changeText = () => {
         this.setState({ count: ++this.state.count });
     };
