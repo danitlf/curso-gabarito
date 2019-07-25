@@ -1,5 +1,6 @@
 import React, { Fragment, Component } from 'react';
 import { FlatList, Image, View, Text, TouchableOpacity } from 'react-native';
+import AsyncStorage from '@react-native-community/async-storage';
 
 class ComponentsUIScreen extends Component {
     constructor(props) {
@@ -12,17 +13,22 @@ class ComponentsUIScreen extends Component {
         ];
     }
 
-    componentDidMount = () => {
-        this.setState({ count: ++this.state.count });
+    componentDidMount = async () => {
+        const value = await AsyncStorage.getItem('test');
+        console.log(JSON.stringify(value));
+        if (value) {
+            this.setState({ count: parseInt(value) });
+        }
     };
 
     shouldComponentUpdate = (newProps, newState) => {
-        console.log(newState);
         return true;
     };
 
     changeText = () => {
-        this.setState({ count: ++this.state.count });
+        const newValue = this.state.count + 1;
+        AsyncStorage.setItem('test', JSON.stringify(newValue));
+        this.setState({ count: newValue });
     };
 
     _renderItem = ({ item }) => {
